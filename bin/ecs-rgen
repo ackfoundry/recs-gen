@@ -9,11 +9,19 @@ module Ecsrgen
   VERSION = '0.0.1'
 end
 
+require 'logger'
+
 require_relative '../option_parser'
 require_relative '../listener'
 require_relative '../rgen_logger'
+require_relative '../scanner'
 
 opts = OptionParser.parse
 logger = RgenLogger.logger opts
 
-Listener.start(opts, logger)
+trap('SIGINT') do
+  puts "\nGoodbye!"
+  exit!
+end
+
+Listener.new(opts, logger).run

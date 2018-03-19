@@ -1,5 +1,3 @@
-require 'logger'
-
 module RgenLogger
   LEVELS = {
     'fatal'   => Logger::FATAL,
@@ -11,7 +9,8 @@ module RgenLogger
 
   def self.logger(opts)
     logger = Logger.new(STDOUT)
-    logger.level = LEVELS[opts['log-level']] || Logger::WARN
+    logger.level = LEVELS[opts[:loglevel]] || Logger::WARN
+    logger.info "Log level set to #{logger.level}"
     logger
   end
 end

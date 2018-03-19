@@ -4,7 +4,7 @@ module OptionParser
     'host-var'  => 'virtual_host',
     'signal'    => 'nginx -s reload',
     'frequency' => 30,
-    'log-level' => 'info',
+    'loglevel'  => 'info',
     'once'      => false
   }.freeze
 
@@ -21,7 +21,7 @@ module OptionParser
       o.string '-s'   , '--signal'                         , 'Command to run to signal change'         , default: DEFAULTS['signal']
 
       o.integer '-f'  , '--frequency'                      , 'Time in seconds between polling.'        , default: DEFAULTS['frequency']
-      o.integer '-l'  , '--log-level'                      , 'Set the logging level'                   , default: DEFAULTS['log-level']
+      o.string  '-l'  , '--loglevel'                       , 'Set the logging level'                   , default: DEFAULTS['loglevel']
       o.bool    '-1'  , '--once'                           , 'Only execute the template once and exit' , default: DEFAULTS['once']
 
       o.bool '--help' , 'Print usage information and exit' , default: false
