@@ -3,20 +3,17 @@
 
 require 'rubygems'
 require 'bundler'
+require 'logger'
 Bundler.require(:default)
-
 Dotenv.load
 
 module Ecsrgen
   VERSION = '0.0.1'
 end
 
-require 'logger'
-
-require_relative '../option_parser'
-require_relative '../listener'
-require_relative '../rgen_logger'
-require_relative '../scanner'
+Dir.glob(File.join(File.expand_path('../..', __FILE__), 'lib', '*.rb')) do |file|
+  require file.gsub('.rb', '')
+end
 
 opts = OptionParser.parse
 $logger = RgenLogger.logger opts

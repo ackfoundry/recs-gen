@@ -1,7 +1,3 @@
-require './ec2'
-require './ecs'
-require './signal_runner'
-
 class Scanner
   attr_accessor :options, :ecs, :ec2
 
