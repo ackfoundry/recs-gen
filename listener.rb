@@ -1,19 +1,19 @@
 class Listener
-  attr_accessor :options, :logger
+  attr_accessor :options
 
-  def initialize(opts, logger = Logger.new(STDOUT))
-    self.options, self.logger = opts, logger
+  def initialize(opts)
+    self.options = opts
   end
 
   def run
-    logger.info 'Polling for ecs changes...'
+    $logger.info 'Polling for ecs changes...'
 
     loop do
-      logger.info 'Updating config...'
-      Scanner.new(options, logger).scan
+      $logger.info 'Updating config...'
+      Scanner.new(options).scan
 
       if options[:once]
-        logger.info "Config written to #{options[:output]}"
+        Scanner.new(options).scan
         break
       end
 

@@ -5,6 +5,8 @@ require 'rubygems'
 require 'bundler'
 Bundler.require(:default)
 
+Dotenv.load
+
 module Ecsrgen
   VERSION = '0.0.1'
 end
@@ -17,11 +19,11 @@ require_relative '../rgen_logger'
 require_relative '../scanner'
 
 opts = OptionParser.parse
-logger = RgenLogger.logger opts
+$logger = RgenLogger.logger opts
 
 trap('SIGINT') do
   puts "\nGoodbye!"
   exit!
 end
 
-Listener.new(opts, logger).run
+Listener.new(opts).run
