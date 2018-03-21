@@ -7,6 +7,8 @@ class Ec2
   end
 
   def describe_instance(id)
-
+    client.describe_instances(
+      instance_ids: [id]
+    )&.reservations&.map(&:instances)&.flatten&.first
   end
 end
