@@ -14,6 +14,9 @@
 .env
 credentials.csv
 
+# test output files
+_*.*
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
