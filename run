@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+bin/recs-gen --region=us-east-1 --cluster=iron-age --loglevel=debug --output=./_test.cfg --template=./templates/haproxy.cfg.erb
