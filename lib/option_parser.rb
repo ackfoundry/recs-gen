@@ -10,11 +10,11 @@ module OptionParser
 
   def self.parse
     opts = Slop.parse do |o|
-      o.string '-r'   , '--region'                         , 'AWS Region'
-      o.string '-c'   , '--cluster'                        , 'ECS cluster name'
+      o.string '-r'   , '--region'                         , 'AWS Region', required: true
+      o.string '-c'   , '--cluster'                        , 'ECS cluster name', required: true
 
-      o.string '-t'   , '--template'                       , 'Path to template file'
-      o.string '-o'   , '--output'                         , 'Path to output file'
+      o.string '-t'   , '--template'                       , 'Path to template file', required: true
+      o.string '-o'   , '--output'                         , 'Path to output file', required: true
 
       o.string '-k'   , '--task'                           , 'Name of ECS task containing nginx'       , default: DEFAULTS['task']
       o.string '-h'   , '--host-var'                       , 'Which ENV var to use for the hostname'   , default: DEFAULTS['host-var']
