@@ -7,7 +7,7 @@ require 'logger'
 Bundler.require(:default)
 Dotenv.load
 
-module Ecsrgen
+module RecsGen
   VERSION = '0.0.1'
 end
 

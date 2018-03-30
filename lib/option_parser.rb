@@ -27,7 +27,7 @@ module OptionParser
       o.bool '--help' , 'Print usage information and exit' , default: false
 
       o.on '--version', 'print ecs-rgen version' do
-        puts Ecsrgen::VERSION
+        puts RecsGen::VERSION
         exit
       end
     end
